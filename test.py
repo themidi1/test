@@ -389,7 +389,7 @@ class TestMod(loader.Module):
 
         # Создаем уникальный логгер для этого клиента
         client_logger = logging.getLogger(f"heroku_logger_{self._client.tg_id}")
-        handler = logging.handlers.TelegramHandler(self.logchat, self._client.tg_id)
+        handler = logging.handlers.StreamHandler()  # Используем StreamHandler вместо TelegramHandler
         handler.setLevel(logging.DEBUG)
         formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
         handler.setFormatter(formatter)
